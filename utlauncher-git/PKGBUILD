@@ -3,7 +3,7 @@
 pkgname=utlauncher-git
 pkgver=r12.986bc05
 pkgver() {
-  cd "$pkgname-$pkgver"
+  cd UTLauncher
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 pkgrel=1
@@ -11,20 +11,20 @@ pkgdesc='Unreal Tournament 4 launcher'
 url='https://github.com/CodeCharmLtd/UTLauncher'
 arch=('i686' 'x86_64')
 license=('MIT')
-source=("$pkgname-$pkgver::git+https://github.com/CodeCharmLtd/UTLauncher.git")
+source=('UTLauncher::git+https://github.com/CodeCharmLtd/UTLauncher.git')
 sha1sums=('SKIP')
 conflicts=(utlauncher)
 provides=(utlauncher)
 depends=(libtorrent-rasterbar qt5-base)
 makedepends=(git cmake boost)
 build() {
-	cd "$pkgname-$pkgver"
+	cd UTLauncher
 	cmake .
 	make
 }
 package() {
 	mkdir -p "$pkgdir/usr/bin"
-	cp "$srcdir/$pkgname-$pkgver/UTLauncher" "$pkgdir/usr/bin/UTLauncher"
+	cp "$srcdir/UTLauncher/UTLauncher" "$pkgdir/usr/bin/UTLauncher"
 	mkdir -p "$pkgdir/usr/share/licenses/$pkgname"
-	cp "$srcdir/$pkgname-$pkgver/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+	cp "$srcdir/UTLauncher/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
