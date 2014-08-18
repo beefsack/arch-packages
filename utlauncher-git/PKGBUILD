@@ -15,7 +15,7 @@ source=('UTLauncher::git+https://github.com/CodeCharmLtd/UTLauncher.git')
 sha1sums=('SKIP')
 conflicts=(utlauncher)
 provides=(utlauncher)
-depends=(libtorrent-rasterbar qt5-base)
+depends=(libtorrent-rasterbar qt5-base libxkbcommon-x11)
 makedepends=(git cmake boost)
 build() {
 	cd UTLauncher
