@@ -1,9 +1,9 @@
 # Maintainer: Michael Alexander <beefsack(at)gmail(dot)com>
 
 pkgname=utlauncher-git
-pkgver=r6.4bfc7de
+pkgver=r10.57d21c6
 pkgver() {
-  cd UTLauncher
+  cd "$pkgname-$pkgver"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 pkgrel=1
